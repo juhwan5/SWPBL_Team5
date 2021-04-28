@@ -31,10 +31,10 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
+                android:id="@+id/display_azimuth"
                 android:text= "나침반 이미지"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:layout_margin="10dp"
                 android:layout_marginLeft="10dp"/>
 
         </TableRow>
@@ -89,17 +89,17 @@
             android:gravity="center">
 
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/city"
                 android:prompt="@string/allprompt"
-                android:layout_marginLeft="10dp"/>
+                android:layout_margin="10dp"/>
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/time"
                 android:prompt="@string/allprompt"
-                android:layout_marginLeft="10dp"/>
+                android:layout_margin="10dp"/>
 
         </TableRow>
 
@@ -110,10 +110,12 @@
 
             <Button
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:text="검색"
                 android:onClick="printAltAz"
-                android:id="@+id/print_altaz_btn"/>
+                android:id="@+id/print_altaz_btn"
+                android:layout_margin="10dp"/>
+
         </TableRow>
 
     </TableLayout>

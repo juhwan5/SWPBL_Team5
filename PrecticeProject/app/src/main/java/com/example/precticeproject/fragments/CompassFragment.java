@@ -21,6 +21,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.precticeproject.R;
 
+import org.w3c.dom.Text;
+
 import static android.content.Context.SENSOR_SERVICE;
 import static com.example.precticeproject.functions.FindAltAz.findAltAz;
 
@@ -32,6 +34,7 @@ public class CompassFragment extends Fragment implements SensorEventListener {
     ImageView img;
     float mCurrentDegree = 0f;
     TextView text1;
+    TextView text2;
     Spinner meteorSpinner;
     Spinner citySpinner;
     Spinner timeSpinner;
@@ -64,6 +67,7 @@ public class CompassFragment extends Fragment implements SensorEventListener {
 
         img = (ImageView) v.findViewById(R.id.compass_img);
         text1 = (TextView) v.findViewById(R.id.print_altaz);
+        text2 = (TextView) v.findViewById(R.id.display_azimuth);
 
         Button b1 = (Button) v.findViewById(R.id.print_altaz_btn);
         b1.setOnClickListener((new View.OnClickListener() {
@@ -88,6 +92,7 @@ public class CompassFragment extends Fragment implements SensorEventListener {
     public void onSensorChanged(SensorEvent event) {
         if(event.sensor.getType() == Sensor.TYPE_ORIENTATION){
             imgRotation(event.values[0]);
+            text2.setText("방위각: " + (int)event.values[0]);
         }
     }
 
@@ -121,7 +126,7 @@ public class CompassFragment extends Fragment implements SensorEventListener {
         String t = timeSpinner.getSelectedItem().toString();
 
         altaz = findAltAz(getActivity(),m,c,t);
-        text1.setText("방위각: " + altaz[0] +", 고도: " + altaz[1]);
+        text1.setText("방위각: " + altaz[1] +", 고도: " + altaz[0]);
     }
 
 }
