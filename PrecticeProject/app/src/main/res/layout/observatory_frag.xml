@@ -8,19 +8,6 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <TableRow>
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text= "천문대"
-                android:textSize="30dp"
-                android:textColor="@color/black"
-                android:layout_margin="10dp"
-                android:layout_marginLeft="10dp"/>
-
-        </TableRow>
-
         <TableRow
             android:layout_height="match_parent"
             android:layout_width="match_parent"

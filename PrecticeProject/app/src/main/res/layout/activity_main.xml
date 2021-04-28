@@ -13,18 +13,36 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!--상단 고정 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상단"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:layout_margin="10dp"
+                android:id="@+id/page_title"/>
+
+        </LinearLayout>
+
+        <!--중간 프래그먼트 -->
         <FrameLayout
             android:id="@+id/frame_container"
             android:layout_width="match_parent"
-            android:layout_height="550dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="#6BA7D5"
             tools:layout_editor_absoluteX="0dp" />
 
+        <!--하단 고정 메뉴-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            >
+            android:gravity="center">
 
                 <Button
                     android:layout_width="50dp"

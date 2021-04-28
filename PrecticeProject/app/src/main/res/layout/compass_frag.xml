@@ -5,44 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TableLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <TableRow>
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text= "나침반"
-                android:textSize="30dp"
-                android:textColor="@color/black"
-                android:layout_margin="10dp"
-                android:layout_marginLeft="10dp"/>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_height="wrap_content"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
 
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:id="@+id/display_azimuth"
-                android:text= "나침반 이미지"
-                android:textSize="15dp"
-                android:textColor="@color/black"
-                android:layout_marginLeft="10dp"/>
+                android:text= "방위각:"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black" />
 
-        </TableRow>
-
-        <TableRow
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:gravity="center">
 
             <ImageView
                 android:id="@+id/compass_img"
@@ -52,41 +32,27 @@
                 android:layout_marginTop="20dp"/>
 
 
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:gravity="center">
 
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text= "정보"
-                android:textSize="15dp"
+                android:text= "선택 후 확인을 눌러주세요."
+                android:textSize="20dp"
                 android:textColor="@color/black"
                 android:layout_margin="10dp"
                 android:id="@+id/print_altaz"/>
 
 
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:gravity="center">
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/meteor"
-                android:layout_marginLeft="10dp"
                 android:prompt="@string/allprompt"/>
 
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:gravity="center">
 
             <Spinner
                 android:layout_width="100dp"
@@ -94,19 +60,18 @@
                 android:id="@+id/city"
                 android:prompt="@string/allprompt"
                 android:layout_margin="10dp"/>
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
             <Spinner
-                android:layout_width="80dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/time"
                 android:prompt="@string/allprompt"
                 android:layout_margin="10dp"/>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
 
             <Button
                 android:layout_height="wrap_content"
@@ -115,8 +80,8 @@
                 android:onClick="printAltAz"
                 android:id="@+id/print_altaz_btn"
                 android:layout_margin="10dp"/>
+        </LinearLayout>
 
-        </TableRow>
-
-    </TableLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -8,17 +8,20 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.precticeproject.fragments.*;
 import com.example.precticeproject.menufragment.*;
 
 public class MainActivity extends AppCompatActivity {
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        title = (TextView)findViewById(R.id.page_title);
         listenCall(0);
     }
 
@@ -43,13 +46,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void listenCall(int i){
         // 버튼이 눌렸을 때 동작들을 묶었습니다.
-        String[] tag = {"home","astro","community",
-                "compass","observatory","menu1"};
+        String[] tag = {"홈","천문현상","커뮤니티",
+                "나침반","천문대","메뉴1"};
 
         fragCall(tag[i],findFragment(i));
+        title.setText(tag[i]);
 
-        if (i < 5){
-        } else {
+        if(i >= tag.length){
             drawerOut();
         }
     }
