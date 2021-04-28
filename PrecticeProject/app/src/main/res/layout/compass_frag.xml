@@ -53,5 +53,68 @@
 
 
         </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text= "정보"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:id="@+id/print_altaz"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center">
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/meteor"
+                android:layout_marginLeft="10dp"
+                android:prompt="@string/allprompt"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center">
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/city"
+                android:prompt="@string/allprompt"
+                android:layout_marginLeft="10dp"/>
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/time"
+                android:prompt="@string/allprompt"
+                android:layout_marginLeft="10dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="검색"
+                android:onClick="printAltAz"
+                android:id="@+id/print_altaz_btn"/>
+        </TableRow>
+
     </TableLayout>
 </LinearLayout>
