@@ -31,7 +31,7 @@ public class CompassFragment extends Fragment implements SensorEventListener {
     public CompassFragment() {}
     private SensorManager mSensorManager;
     private Sensor mOrientation;
-    ImageView img;
+    ImageView needleImg,arrowImg;
     float mCurrentDegree = 0f;
     TextView text1;
     TextView text2;
@@ -65,7 +65,8 @@ public class CompassFragment extends Fragment implements SensorEventListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v =  inflater.inflate(R.layout.compass_frag,container,false);
 
-        img = (ImageView) v.findViewById(R.id.compass_img);
+        needleImg = (ImageView) v.findViewById(R.id.compass_needle);
+        arrowImg = (ImageView) v.findViewById(R.id.compass_arrow);
         text1 = (TextView) v.findViewById(R.id.print_altaz);
         text2 = (TextView) v.findViewById(R.id.display_azimuth);
 
@@ -91,21 +92,21 @@ public class CompassFragment extends Fragment implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent event) {
         if(event.sensor.getType() == Sensor.TYPE_ORIENTATION){
-            imgRotation(event.values[0]);
-            text2.setText("방위각: " + (int)event.values[0]);
+            imgRotation(needleImg, event.values[0]);
+            text2.setText("방위각: " + (int)event.values[0] + ", 고도: " + (int)event.values[1] );
         }
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy){}
 
-    public void imgRotation (float azimuthDegree) {
+    public void imgRotation (ImageView imageView, float azimuthDegree) {
         RotateAnimation ra = new RotateAnimation(mCurrentDegree, -azimuthDegree,
                 Animation.RELATIVE_TO_SELF,0.5f,
                 Animation.RELATIVE_TO_SELF,0.5f);
 
         ra.setFillAfter(true);
-        img.startAnimation(ra);
+        imageView.startAnimation(ra);
         mCurrentDegree = -azimuthDegree;
     }
 
@@ -127,6 +128,8 @@ public class CompassFragment extends Fragment implements SensorEventListener {
 
         altaz = findAltAz(getActivity(),m,c,t);
         text1.setText("방위각: " + altaz[1] +", 고도: " + altaz[0]);
+
     }
+
 
 }
