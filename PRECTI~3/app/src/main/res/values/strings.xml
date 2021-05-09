@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">5.9.1</string>
+
+
+    <string-array name = "meteorshower">
+        <item>거문고자리 유성우</item>
+        <item>사분의자리 유성우</item>
+        <item>페르세우스 유성우</item>
+        <item>사자자리 유성우</item>
+        <item>쌍둥이자리 유성우</item>
+    </string-array>
+
+    <string-array name = "cities">
+        <item>서울</item>
+        <item>부산</item>
+        <item>제주</item>
+        <item>전북</item>
+        <item>전남</item>
+    </string-array>
+
+    <string-array name = "times">
+        <item>00시</item>
+        <item>02시</item>
+        <item>04시</item>
+        <item>06시</item>
+        <item>08시</item>
+    </string-array>
+    <string name = "allprompt">선택</string>
+
+</resources>

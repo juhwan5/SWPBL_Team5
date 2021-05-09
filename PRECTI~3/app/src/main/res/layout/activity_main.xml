@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:id="@+id/drawer">
+    <!-- 본 화면 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--상단 고정 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상단"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:layout_margin="10dp"
+                android:id="@+id/page_title"/>
+
+        </LinearLayout>
+
+        <!--중간 프래그먼트 -->
+        <FrameLayout
+            android:id="@+id/frame_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#6BA7D5"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <!--하단 고정 메뉴-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:onClick="homeListener"
+                    android:text="1" />
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:onClick="astroListener"
+                    android:text="2" />
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:onClick="communityListener"
+                    android:text="3" />
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:onClick="compassListener"
+                    android:text="4" />
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:onClick="observeListener"
+                    android:text="5" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--슬라이드 메뉴 -->
+    <include layout="@layout/slide_menu"/>
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -29,6 +29,7 @@ public class AstroFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         AstroAdapter adapter = new AstroAdapter();
 
+
         adapter.addItem(new AstroItem(R.drawable.shooting_star, "사자자리 유성우", "4월 26일"));
         adapter.addItem(new AstroItem(R.drawable.shooting_star, "페르세우스 유성우", "5월 26일"));
         adapter.addItem(new AstroItem(R.drawable.shooting_star, "사분의자리 유성우", "9월 15일"));
