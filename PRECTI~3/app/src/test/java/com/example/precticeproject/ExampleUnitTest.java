@@ -1,5 +1,7 @@
 package com.example.precticeproject;
 
+import com.example.precticeproject.functions.FindAltAz;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,6 +14,6 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+        assertEquals("04:00", FindAltAz.findtime("04시"));
     }
 }

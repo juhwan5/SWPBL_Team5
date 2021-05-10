@@ -9,17 +9,16 @@ import java.util.Map;
 
 public class CompassRequest extends StringRequest {
 
-    final static private String URL = "http://yaya0147.dothome.co.kr/Testhis.php";
+    final static private String URL = "http://yaya0147.dothome.co.kr/CompassPHP.php";
     private Map<String, String> map;
 
-    public CompassRequest(Response.Listener<String> listener){
+    public CompassRequest(String[] keys, Response.Listener<String> listener){
         super(Method.POST, URL, listener,null);
         map = new HashMap<>();
-       /* map.put("userID",userID);
-        map.put("userPassword", userPass);
-        map.put("userName", userName);
-        map.put("userAge", userAge + ""); */
-
+        map.put("meteor", keys[0]);
+        map.put("area", keys[1]);
+        map.put("timeAlt", keys[2]);
+        map.put("timeAz", keys[3]);
     }
 
     @Override
