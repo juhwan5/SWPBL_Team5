@@ -33,7 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
         et_age =findViewById(R.id.et_age);
         Log.e("MYTAG","안녕");
         //회원가입 버튼 클릭 시 수행
-
+        // 배터리가 다되셨나용?ㅋㅋㅋㅋ 죄송해요!ㅜㅜㅜ 잠시마 아니면 컴퓨터로 보톡으로할까요 ?
+        //네네!!
         btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,12 +45,14 @@ public class RegisterActivity extends AppCompatActivity {
                 String userName = et_name.getText().toString();
                 int userAge = Integer.parseInt(et_age.getText().toString());
                 Log.w("asd","asdads");
-
+                //제이슨 오브젝트를 활용하여 실제적인 회원가입 요청하기
+                //서버에 전송할 때 일반 String 불가능하므로 제이슨 오브젝트 형태로 바꿔줌/운반책
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response) {
                         try{
-
+                            // String으로 그냥 못 보냄으로 JSON Object 형태로 변형하여 전송
+                            // 서버 통신하여 회원가입 성공 여부를 jsonResponse로 받음
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
                             if(success){ // 회원가입이 가능한다면
@@ -57,9 +60,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class );
                                 startActivity(intent);
-                                finish();
+                                finish();//액티비티를 종료시킴(회원등록 창을 닫음)
 
-                            }else{
+                            }else{// 회원가입이 안된다면
                                 Toast.makeText(getApplicationContext(), "회원가입에 실패했습니다. 다시 한 번 확인해 주세요.", Toast.LENGTH_SHORT).show();
                                 return;
                             }

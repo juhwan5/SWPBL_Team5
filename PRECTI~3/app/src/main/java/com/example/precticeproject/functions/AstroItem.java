@@ -1,25 +1,42 @@
 package com.example.precticeproject.functions;
 
 public class AstroItem {
-    int imgID;
-    String astroName;
-    String astroDate;
+    private String profile;
+    private String id;
+    private int pw;
+    private String userName;
 
-    public AstroItem(int imgID, String astroName, String astroDate) {
-        this.imgID = imgID;
-        this.astroName = astroName;
-        this.astroDate = astroDate;
+    public AstroItem(){}
+
+    public String getProfile() {
+        return profile;
     }
 
-    public int getImgID() {
-        return imgID;
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 
-    public String getAstroName() {
-        return astroName;
+    public String getId() {
+        return id;
     }
 
-    public String getAstroDate() {
-        return astroDate;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getPw() {
+        return pw;
+    }
+
+    public void setPw(int pw) {
+        this.pw = pw;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
