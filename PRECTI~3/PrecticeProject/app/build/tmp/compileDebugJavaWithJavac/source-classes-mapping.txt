@@ -1,0 +1,44 @@
+com/example/precticeproject/fragments/HomeFragment.java
+ com.example.precticeproject.fragments.HomeFragment
+com/example/precticeproject/functions/CommunityAdapter.java
+ com.example.precticeproject.functions.CommunityAdapter
+ com.example.precticeproject.functions.CommunityAdapter$ViewHolder
+com/example/precticeproject/functions/FindAltAz.java
+ com.example.precticeproject.functions.FindAltAz
+com/example/precticeproject/MainActivity.java
+ com.example.precticeproject.MainActivity
+com/example/precticeproject/BuildConfig.java
+ com.example.precticeproject.BuildConfig
+com/example/precticeproject/menufragment/Menu1Fragment.java
+ com.example.precticeproject.menufragment.Menu1Fragment
+com/example/precticeproject/fragments/AstroFragment.java
+ com.example.precticeproject.fragments.AstroFragment
+com/example/precticeproject/RegisterRequest.java
+ com.example.precticeproject.RegisterRequest
+com/example/precticeproject/functions/AstroItem.java
+ com.example.precticeproject.functions.AstroItem
+com/example/precticeproject/functions/AstroAdapter.java
+ com.example.precticeproject.functions.AstroAdapter
+ com.example.precticeproject.functions.AstroAdapter$ViewHolder
+com/example/precticeproject/fragments/CommunityFragment.java
+ com.example.precticeproject.fragments.CommunityFragment
+com/example/precticeproject/functions/CommunityItem.java
+ com.example.precticeproject.functions.CommunityItem
+com/example/precticeproject/fragments/CompassFragment.java
+ com.example.precticeproject.fragments.CompassFragment
+ com.example.precticeproject.fragments.CompassFragment$1
+com/example/precticeproject/functions/LoadRawCSV.java
+ com.example.precticeproject.functions.LoadRawCSV
+com/example/precticeproject/fragments/ObservatoryFragment.java
+ com.example.precticeproject.fragments.ObservatoryFragment
+com/example/precticeproject/LoginRequest.java
+ com.example.precticeproject.LoginRequest
+com/example/precticeproject/LoginActivity.java
+ com.example.precticeproject.LoginActivity
+ com.example.precticeproject.LoginActivity$1
+ com.example.precticeproject.LoginActivity$2
+ com.example.precticeproject.LoginActivity$2$1
+com/example/precticeproject/RegisterActivity.java
+ com.example.precticeproject.RegisterActivity
+ com.example.precticeproject.RegisterActivity$1
+ com.example.precticeproject.RegisterActivity$1$1

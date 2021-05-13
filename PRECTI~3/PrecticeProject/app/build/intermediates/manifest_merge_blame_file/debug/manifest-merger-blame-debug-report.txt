@@ -1,0 +1,61 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.precticeproject"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:4:5-66
+11-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:4:22-64
+12
+13    <application
+13-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:6:5-24:19
+14        android:allowBackup="true"
+14-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:7:9-35
+15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+15-->[androidx.core:core:1.3.1] C:\Users\aoal5\.gradle\caches\transforms-2\files-2.1\c560b8721f05ca12656603dd382025ab\core-1.3.1\AndroidManifest.xml:24:18-86
+16        android:debuggable="true"
+17        android:icon="@mipmap/ic_launcher"
+17-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:8:9-43
+18        android:label="@string/app_name"
+18-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:9:9-41
+19        android:roundIcon="@mipmap/ic_launcher_round"
+19-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:10:9-54
+20        android:supportsRtl="true"
+20-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:11:9-35
+21        android:testOnly="true"
+22        android:theme="@style/Theme.PrecticeProject" >
+22-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:12:9-53
+23        android:usesCleartextTraffic="true">     
+24        <!-- 안드로이드 9.0 이상 버전부터는 보안이 강화되서 노트9 등 파이 이상 버전에서 테스트 할 떄 추가해야 네트워크 연결이 됨 -->
+25        <activity android:name="com.example.precticeproject.LoginActivity" >
+25-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:14:9-21:20
+25-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:14:19-48
+26
+27            <!-- 인텐트 필터는 처음 앱 실행시 나타나는 화면을 뜻한다 -->
+28            <intent-filter>
+28-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:16:13-20:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:17:17-69
+29-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:17:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:19:17-77
+31-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:19:27-74
+32            </intent-filter>
+33        </activity>
+34        <activity android:name="com.example.precticeproject.RegisterActivity" />
+34-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:22:9-54
+34-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:22:19-51
+35        <activity android:name="com.example.precticeproject.MainActivity" />
+35-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:23:9-49
+35-->C:\Users\aoal5\Downloads\SWPBL_Team5-main\SWPBL_Team5-main\PrecticeProject\app\src\main\AndroidManifest.xml:23:19-47
+36    </application>
+37
+38</manifest>
