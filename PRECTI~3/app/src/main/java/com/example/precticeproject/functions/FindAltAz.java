@@ -69,7 +69,12 @@ public class FindAltAz {
 
     //시각 확인
     public static String findtime(String t){
-        String key = t.substring(0,2) + ":00";
+        String key;
+        if (t.length() > 3) {
+            key = t.substring(0, 2) + ":00";
+        }else {
+            return "fail";
+        }
         return key;
     }
 }

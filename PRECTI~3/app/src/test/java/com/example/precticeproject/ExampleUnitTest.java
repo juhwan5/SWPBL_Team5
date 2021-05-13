@@ -14,6 +14,8 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        assertEquals("04:00", FindAltAz.findtime("04시"));
+        String[] expect = {"Geminids","Busan","16:00-Alt.","16:00-Az."};
+        String[] actual = FindAltAz.findAltAz("쌍둥이자리 유성우","부산","16시");
+        assertArrayEquals(expect ,actual);
     }
 }
