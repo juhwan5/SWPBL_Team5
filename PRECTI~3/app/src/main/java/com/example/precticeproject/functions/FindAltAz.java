@@ -49,6 +49,15 @@ public class FindAltAz {
             case "쌍둥이자리 유성우":
                 key = "Geminids";
                 break;
+            case "물병자리-에타 유성우":
+                key = "Eta Aquariids";
+                break;
+            case "물병자리-델타-남 유성우":
+                key = "S Delta Aquariids";
+                break;
+            case "오리온자리 유성우":
+                key = "Orionids";
+                break;
             default:
                 key = "fail";
         }
@@ -59,21 +68,58 @@ public class FindAltAz {
     public static String findcity(String c){
         String key;
         switch(c){
-            case "서울":
-                key = "Seoul";
+            case "강원":
+                key = "Gangwon";
+                break;
+            case "경기":
+                key = "Gyeonggi";
+                break;
+            case "경남":
+                key = "Gyeongsangnam";
+                break;
+            case "경북":
+                key = "Gyeongsangbuk";
+                break;
+                //4
+            case "광주":
+                key = "Gwangju";
+                break;
+            case "대구":
+                key = "Daegu";
+                break;
+            case "대전":
+                key = "Daejeon";
                 break;
             case "부산":
                 key = "Busan";
                 break;
-            case "제주":
-                key = "Cheju";
+            //8
+            case "서울":
+                key = "Seoul";
                 break;
-            case "전북":
-                key = "Chollabuk";
+            case "울산":
+                key = "Ulsan";
+                break;
+            case "인천":
+                key = "Incheon";
                 break;
             case "전남":
                 key = "Chollanam";
                 break;
+            //12
+            case "전북":
+                key = "Chollabuk";
+                break;
+            case "제주":
+                key = "Jeju";
+                break;
+            case "충남":
+                key = "Chungcheongnam";
+                break;
+            case "충북":
+                key = "Chungcheongbuk";
+                break;
+            //16
             default:
                 key = "fail";
         }

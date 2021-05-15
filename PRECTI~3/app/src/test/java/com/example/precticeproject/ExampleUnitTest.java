@@ -1,10 +1,14 @@
 package com.example.precticeproject;
 
 import com.example.precticeproject.functions.FindAltAz;
+import com.example.precticeproject.functions.ProcessJSONData;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -15,13 +19,16 @@ import static org.junit.Assert.assertTrue;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        String[] expect = {"Geminids","Busan","16:00-Alt.","16:00-Az."};
-        String[] actual = FindAltAz.findAltAz("쌍둥이자리 유성우","부산","16시");
+        String[] expect = {"Eta Aquariids","Daejeon","06:00-Alt.","06:00-Az."};
+        String[] actual = FindAltAz.findAltAz("물병자리-에타 유성우","대전","06시");
         assertArrayEquals(expect ,actual);
 
-        String[] expect2 = {"Leonids","Busan","16:00-Alt.","16:00-Az."};
-        String[] actual2 = FindAltAz.findAltAz("사자자리 유성우","부산","asdf");
+        String[] expect2 = {"Orionids","Incheon","22:00-Alt.","22:00-Az."};
+        String[] actual2 = FindAltAz.findAltAz("오리온자리 유성우","인천","22시");
         assertArrayEquals(expect2 ,actual2);
+
+        String[] keys = {"Orionids","fail", "success"};
+        //assertTrue(FindAltAz.checkNotFail(keys));
 
     }
 }
