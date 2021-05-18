@@ -13,21 +13,11 @@ public class FindAltAz {
         keys[2] = findtime(t);
         keys[3] = findtime(t);
 
-        if (checkNotFail(keys)) {
+        if (! keys[2].equals("fail")) {
             keys[2] = keys[2] + "-Alt.";
             keys[3] = keys[3] + "-Az.";
         }
         return keys;
-    }
-
-    public static Boolean checkNotFail(String[] keys){
-        Boolean bool = true;
-        for(int i = 0; i < keys.length-1; i++){
-            if (keys[i].equals("fail")){
-                bool = false;
-            }
-        }
-        return bool;
     }
 
     //유성우 종류 확인

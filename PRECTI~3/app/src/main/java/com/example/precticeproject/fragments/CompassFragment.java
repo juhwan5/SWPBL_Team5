@@ -167,6 +167,8 @@ public class CompassFragment extends Fragment implements SensorEventListener {
             RequestQueue queue = Volley.newRequestQueue(getContext());
             queue.add(compassRequest);
 
+        }else{
+            Toast.makeText(getContext(),"검색 실패", Toast.LENGTH_SHORT).show();
         }
 
     }

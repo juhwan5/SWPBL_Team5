@@ -27,8 +27,29 @@ public class ExampleUnitTest {
         String[] actual2 = FindAltAz.findAltAz("오리온자리 유성우","인천","22시");
         assertArrayEquals(expect2 ,actual2);
 
+        String[] expect3 = {"fail","fail","22:00-Alt.","22:00-Az."};
+        String[] actual3 = FindAltAz.findAltAz("게자리 유성우","파주","22시");
+        assertArrayEquals(expect3 ,actual3);
+
         String[] keys = {"Orionids","fail", "success"};
         //assertTrue(FindAltAz.checkNotFail(keys));
+    }
 
+    @Test
+    public void processJSONtest() {
+        String text = "{\"alt\":\"AB\",\"az\":\"BC\"}";
+        String a = "AB";
+        String b = "BC";
+        String[] expect = new String[]{a,b};
+        try {
+            JSONObject j1 = new JSONObject();
+            JSONObject j2 = new JSONObject(text);
+            j1.put("alt",a);
+            j1.put("az",b);
+            assertArrayEquals(expect,ProcessJSONData.processCompassData(j1));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        //assertEquals("AB",text);
     }
 }

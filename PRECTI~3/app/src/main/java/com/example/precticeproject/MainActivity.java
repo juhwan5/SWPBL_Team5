@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -15,14 +16,20 @@ import com.example.precticeproject.menufragment.*;
 
 public class MainActivity extends AppCompatActivity {
     TextView title;
+    TextView userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        userName = (TextView)findViewById(R.id.txt_username);
         title = (TextView)findViewById(R.id.page_title);
         listenCall(0);
+
+        Intent intent =getIntent();
+        String name = intent.getStringExtra("userName");
+        userName.setText(name + "님\n환영합니다.");
     }
 
     public void homeListener (View v){
@@ -41,7 +48,11 @@ public class MainActivity extends AppCompatActivity {
         listenCall(4);
     }
 
-    public void menu1Listener (View v) { listenCall(5); }
+    public void menu1Listener (View v) {
+        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 
     public void listenCall(int i){

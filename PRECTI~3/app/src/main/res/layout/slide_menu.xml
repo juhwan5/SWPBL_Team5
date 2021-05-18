@@ -15,8 +15,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/txt_username"
+            android:layout_margin="10dp"
             android:text="슬라이드 메뉴"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:textColor="@color/black"/>
     </LinearLayout>
 
@@ -29,7 +31,7 @@
             android:layout_height="40dp"
             android:layout_margin="10dp"
             android:onClick="menu1Listener"
-            android:text="menu1" />
+            android:text="로그아웃" />
 
     </LinearLayout>
 
