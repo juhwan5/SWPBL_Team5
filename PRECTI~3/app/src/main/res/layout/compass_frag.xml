@@ -14,23 +14,40 @@
             android:orientation="vertical"
             android:gravity="center">
 
+
             <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
                 android:id="@+id/display_azimuth"
-                android:text= "방위각:"
-                android:textSize="20dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black" />
-
-
-            <ImageView
-                android:id="@+id/compass_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/compass_img"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="10dp"
+                android:text="방위각:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/compass_arrow"
+                    android:layout_width="400dp"
+                    android:layout_height="400dp"
+                    app:srcCompat="@drawable/compass_arrow"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:layout_width="400dp"
+                    android:layout_height="400dp"
+                    app:srcCompat="@drawable/compass_board"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:id="@+id/compass_needle"
+                    android:layout_width="400dp"
+                    android:layout_height="400dp"
+                    app:srcCompat="@drawable/compass_needle"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
 
 
             <TextView
