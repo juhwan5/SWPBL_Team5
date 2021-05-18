@@ -1,5 +1,6 @@
 package com.example.precticeproject;
 
+
 import com.example.precticeproject.functions.FindAltAz;
 import com.example.precticeproject.functions.ProcessJSONData;
 
@@ -11,6 +12,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
@@ -19,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
+
         String[] expect = {"Eta Aquariids","Daejeon","06:00-Alt.","06:00-Az."};
         String[] actual = FindAltAz.findAltAz("물병자리-에타 유성우","대전","06시");
         assertArrayEquals(expect ,actual);
@@ -51,5 +54,6 @@ public class ExampleUnitTest {
             e.printStackTrace();
         }
         //assertEquals("AB",text);
+
     }
 }

@@ -13,8 +13,11 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.PrecticeProject">
         <activity android:name=".MainActivity">
-        </activity>
 
+        </activity>
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="lnrrqkl63w"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +27,7 @@
         </activity>
 
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".ObservatoryListActivity"/>
     </application>
 
 </manifest>
