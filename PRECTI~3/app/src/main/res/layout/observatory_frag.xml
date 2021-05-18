@@ -23,6 +23,10 @@
                 android:layout_marginLeft="10dp"/>
 
         </TableRow>
-
+        <!-- (3) 지도 출력 -->
+        <com.naver.maps.map.MapView
+            android:id="@+id/navermap"
+            android:layout_width="match_parent"
+            android:layout_height="578dp" />
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

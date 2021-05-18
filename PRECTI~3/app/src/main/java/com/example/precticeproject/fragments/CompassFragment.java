@@ -16,18 +16,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
 import com.example.precticeproject.R;
-import com.example.precticeproject.functions.ProcessJSONData;
-import com.example.precticeproject.network.CompassRequest;
 
-import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import static android.content.Context.SENSOR_SERVICE;
@@ -38,7 +31,7 @@ public class CompassFragment extends Fragment implements SensorEventListener {
     public CompassFragment() {}
     private SensorManager mSensorManager;
     private Sensor mOrientation;
-    ImageView needleImg,arrowImg;
+    ImageView img;
     float mCurrentDegree = 0f;
     TextView text1;
     TextView text2;
@@ -72,8 +65,7 @@ public class CompassFragment extends Fragment implements SensorEventListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v =  inflater.inflate(R.layout.compass_frag,container,false);
 
-        needleImg = (ImageView) v.findViewById(R.id.compass_needle);
-        arrowImg = (ImageView) v.findViewById(R.id.compass_arrow);
+        img = (ImageView) v.findViewById(R.id.compass_img);
         text1 = (TextView) v.findViewById(R.id.print_altaz);
         text2 = (TextView) v.findViewById(R.id.display_azimuth);
 
@@ -99,21 +91,21 @@ public class CompassFragment extends Fragment implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent event) {
         if(event.sensor.getType() == Sensor.TYPE_ORIENTATION){
-            imgRotation(needleImg, event.values[0]);
-            text2.setText("방위각: " + (int)event.values[0] + ", 고도: " + (int)event.values[1] );
+            imgRotation(event.values[0]);
+            text2.setText("방위각: " + (int)event.values[0]);
         }
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy){}
 
-    public void imgRotation (ImageView imageView, float azimuthDegree) {
+    public void imgRotation (float azimuthDegree) {
         RotateAnimation ra = new RotateAnimation(mCurrentDegree, -azimuthDegree,
                 Animation.RELATIVE_TO_SELF,0.5f,
                 Animation.RELATIVE_TO_SELF,0.5f);
 
         ra.setFillAfter(true);
-        imageView.startAnimation(ra);
+        img.startAnimation(ra);
         mCurrentDegree = -azimuthDegree;
     }
 
@@ -126,49 +118,15 @@ public class CompassFragment extends Fragment implements SensorEventListener {
         return adapter;
     }
 
-    public void printAltAz (View v){
-        String keys[];
 
-        boolean notFail = true;
+    public void printAltAz (View v){
+        String altaz[];
         String m = meteorSpinner.getSelectedItem().toString();
         String c = citySpinner.getSelectedItem().toString();
         String t = timeSpinner.getSelectedItem().toString();
 
-        keys = findAltAz(m,c,t);
-
-        if (keys[0].equals("fail")){
-                notFail = false;
-        }
-
-
-        if(notFail){
-
-            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    try {
-                        JSONObject jsonResponse = new JSONObject(response);
-                        boolean success = jsonResponse.getBoolean("success");
-                        if (success) {
-                            String[] altaz = ProcessJSONData.processCompassData(jsonResponse.getJSONObject("data"));
-                            text1.setText("방위각: " + altaz[1] +", 고도: " + altaz[0]);
-                        } else {
-                            Toast.makeText(getContext(),"실패", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                    } catch (Exception e) {
-                        Toast.makeText(getContext(),"불능", Toast.LENGTH_SHORT).show();
-                        e.printStackTrace();
-                    }
-                }
-            };
-
-            CompassRequest compassRequest = new CompassRequest(keys, responseListener);
-            RequestQueue queue = Volley.newRequestQueue(getContext());
-            queue.add(compassRequest);
-
-        }
-
+        altaz = findAltAz(getActivity(),m,c,t);
+        text1.setText("방위각: " + altaz[1] +", 고도: " + altaz[0]);
     }
 
 }
