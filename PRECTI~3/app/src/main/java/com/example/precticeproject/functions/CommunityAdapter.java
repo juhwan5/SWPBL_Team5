@@ -39,6 +39,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         //ImageView img;
+        int textnumber;
         TextView name;
         TextView date;
         TextView textual;
@@ -54,6 +55,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
         }
 
         public void setItem(CommunityItem item){
+            textnumber = item.getTextnumber();
             name.setText(item.getProfileName());
             date.setText(item.getProfileDate());
             textual.setText(item.getTextual());
@@ -61,6 +63,16 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
         }
     }
 
+    public void clear() {
+        int size = getItemCount();
+        if (size > 0) {
+            for (int i = 0; i < size; i++) {
+                items.remove(0);
+            }
+
+            notifyItemRangeRemoved(0, size);
+        }
+    }
 
     public void addItem(CommunityItem item){
         items.add(item);

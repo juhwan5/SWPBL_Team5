@@ -1,10 +1,9 @@
 <resources>
 
-    <string name="app_name">5.18.4</string>
+    <string name="app_name">5.24.3</string>
 
 
-
-    <string-array name = "meteorshower">
+    <string-array name="meteorshower">
         <item>사분의자리 유성우</item>
         <item>거문고자리 유성우</item>
         <item>물병자리-에타 유성우</item>
@@ -15,7 +14,7 @@
         <item>쌍둥이자리 유성우</item>
     </string-array>
 
-    <string-array name = "cities">
+    <string-array name="cities">
         <item>강원</item>
         <item>경기</item>
         <item>경남</item>
@@ -38,7 +37,7 @@
         <!--16-->
     </string-array>
 
-    <string-array name = "times">
+    <string-array name="times">
         <item>00시</item>
         <item>02시</item>
         <item>04시</item>
@@ -52,6 +51,6 @@
         <item>20시</item>
         <item>22시</item>
     </string-array>
-    <string name = "allprompt">선택</string>
+    <string name="allprompt">선택</string>
 
 </resources>

@@ -78,12 +78,12 @@ public class CompassFragment extends Fragment implements SensorEventListener {
         text2 = (TextView) v.findViewById(R.id.display_azimuth);
 
         Button b1 = (Button) v.findViewById(R.id.print_altaz_btn);
-        b1.setOnClickListener((new View.OnClickListener() {
+        b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 printAltAz(v);
             }
-        }));
+        });
 
         meteorSpinner = (Spinner)v.findViewById(R.id.meteor);
         citySpinner = (Spinner)v.findViewById(R.id.city);
