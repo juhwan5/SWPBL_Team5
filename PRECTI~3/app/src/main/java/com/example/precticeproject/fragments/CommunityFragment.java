@@ -37,13 +37,14 @@ import java.util.ArrayList;
 public class CommunityFragment extends Fragment {
     public CommunityFragment() {}
     String asterisk = "*";
-    CommunityAdapter adapter = new CommunityAdapter();
+    CommunityAdapter adapter;
     RecyclerView recyclerView;
     String username;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        adapter = new CommunityAdapter(getContext());
     }
 
     @Override
@@ -54,6 +55,7 @@ public class CommunityFragment extends Fragment {
         recyclerView = v.findViewById(R.id.community_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
+        adapter.setUsername(username);
 
         Button writeText = v.findViewById(R.id.commu_write_textual);
         writeText.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +63,7 @@ public class CommunityFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), CommunityEditTextActivity.class);
                 intent.putExtra("username",username);
+                intent.putExtra("textual","null");
                 startActivity(intent);
             }
         });

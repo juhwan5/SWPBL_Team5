@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrecticeProject"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CommunityEditTextActivity"></activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".TTTTTTTTTT"></activity>
+        <activity android:name=".MyTextualActivity" />
+        <activity android:name=".CommunityEditTextActivity" />
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"

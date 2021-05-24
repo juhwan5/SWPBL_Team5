@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.precticeproject.fragments.*;
-import com.example.precticeproject.menufragment.*;
 
 public class MainActivity extends AppCompatActivity {
     TextView title;
@@ -49,10 +48,16 @@ public class MainActivity extends AppCompatActivity {
         listenCall(4);
     }
 
-    public void menu1Listener (View v) {
+    public void logoutListener (View v) {
         Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void mytextualListener (View v){
+        Intent intent = new Intent(getApplicationContext(),MyTextualActivity.class);
+        intent.putExtra("username",name);
+        startActivity(intent);
     }
 
 
@@ -91,8 +96,6 @@ public class MainActivity extends AppCompatActivity {
                 return new CompassFragment();
             case 4:
                 return new ObservatoryFragment();
-            case 5:
-                return new Menu1Fragment();
             default:
                 return new Fragment();
         }
