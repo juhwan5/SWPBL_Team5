@@ -22,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.precticeproject.CommunityEditTextActivity;
 import com.example.precticeproject.R;
 import com.example.precticeproject.TTTTTTTTTT;
+import com.example.precticeproject.fragments.CommunityFragment;
 import com.example.precticeproject.network.CommuDeleteRequest;
 import com.example.precticeproject.network.CommuLookupRequest;
 
@@ -134,7 +135,8 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
                         JSONObject jsonResponse = new JSONObject(response);
                         boolean success = jsonResponse.getBoolean("success");
                         if (success){
-                            Toast.makeText(context,"삭제 완료", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"삭제 완료, 새로고침 해주세요", Toast.LENGTH_SHORT).show();
+
                         } else{
                             Toast.makeText(context,"실패", Toast.LENGTH_SHORT).show();
                         }

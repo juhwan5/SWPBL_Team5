@@ -36,7 +36,7 @@ import java.util.ArrayList;
 
 public class CommunityFragment extends Fragment {
     public CommunityFragment() {}
-    String asterisk = "*";
+    final String ASTERISK= "*";
     CommunityAdapter adapter;
     RecyclerView recyclerView;
     String username;
@@ -76,9 +76,13 @@ public class CommunityFragment extends Fragment {
             }
         });
 
-        showRecyclerView();
-
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        showRecyclerView();
     }
 
     public void showRecyclerView(){
@@ -105,7 +109,7 @@ public class CommunityFragment extends Fragment {
             }
         };
 
-        CommuLookupRequest lookupRequest = new CommuLookupRequest(asterisk,responseListener);
+        CommuLookupRequest lookupRequest = new CommuLookupRequest(ASTERISK,responseListener);
         RequestQueue queue = Volley.newRequestQueue(getContext());
         queue.add(lookupRequest);
     }

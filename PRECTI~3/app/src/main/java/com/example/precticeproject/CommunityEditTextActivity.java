@@ -71,7 +71,7 @@ public class CommunityEditTextActivity extends AppCompatActivity {
                     JSONObject jsonResponse = new JSONObject(response);
                     boolean success = jsonResponse.getBoolean("success");
                     if (success){
-                        Toast.makeText(getApplicationContext(),"글 쓰기 성공, 새로고침 해주세요", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"글 쓰기 성공", Toast.LENGTH_SHORT).show();
                         finish();
                     } else{
                         Toast.makeText(getApplicationContext(),"실패", Toast.LENGTH_SHORT).show();
@@ -96,7 +96,7 @@ public class CommunityEditTextActivity extends AppCompatActivity {
                     JSONObject jsonResponse = new JSONObject(response);
                     boolean success = jsonResponse.getBoolean("success");
                     if (success){
-                        Toast.makeText(getApplicationContext(),"글 수정 성공, 새로고침 해주세요", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"글 수정 성공", Toast.LENGTH_SHORT).show();
                         finish();
                     } else{
                         Toast.makeText(getApplicationContext(),"실패", Toast.LENGTH_SHORT).show();

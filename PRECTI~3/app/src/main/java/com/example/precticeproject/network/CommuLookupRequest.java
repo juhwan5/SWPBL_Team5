@@ -19,10 +19,10 @@ public class CommuLookupRequest extends StringRequest {
     private Map<String, String> map;
 
 
-    public CommuLookupRequest(String user,Response.Listener<String> listener){
+    public CommuLookupRequest(String username,Response.Listener<String> listener){
         super(Method.POST, URL, listener,null);
         map = new HashMap<>();
-        map.put("user", user);
+        map.put("username", username);
 
     }
 
