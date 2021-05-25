@@ -4,24 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        >
 
-        <TableRow>
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text= "홈화면입니다으아아아"
-                android:textSize="30dp"
-                android:textColor="@color/black"
-                android:layout_margin="10dp"
-                android:layout_marginLeft="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        </TableRow>
-        <TableRow>
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -29,10 +17,14 @@
                 android:textSize="30dp"
                 android:textColor="@color/black"
                 android:layout_margin="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
 
-        </TableRow>
+            <WebView
+                android:id="@+id/homewebView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-    </TableLayout>
+        </LinearLayout>
 
 </FrameLayout>
