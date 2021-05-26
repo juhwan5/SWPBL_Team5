@@ -43,7 +43,6 @@ public class RegisterActivity extends AppCompatActivity {
                 String userPass = et_pass.getText().toString();
                 String userName = et_name.getText().toString();
                 int userAge = Integer.parseInt(et_age.getText().toString());
-                Log.w("asd","asdads");
 
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
@@ -77,11 +76,6 @@ public class RegisterActivity extends AppCompatActivity {
                 queue.add(registerRequest);
             }
         });
-
-        //회원가입 버튼을 눌렀을 때 각각의 데이터를 서버(Register Request)로 전송
-
-
-
 
     }
 }

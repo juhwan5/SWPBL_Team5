@@ -11,23 +11,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/night">
 
         <!--상단 고정 -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="60dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="상단"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:layout_margin="10dp"
                 android:id="@+id/page_title"/>
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white"/>
 
         <!--중간 프래그먼트 -->
         <FrameLayout
@@ -35,49 +41,74 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#6BA7D5"
             tools:layout_editor_absoluteX="0dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/white"/>
 
         <!--하단 고정 메뉴-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:gravity="center"
+            >
 
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:onClick="homeListener"
-                    android:text="1" />
+            <ImageButton
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="12dp"
+                android:onClick="homeListener"
+                android:src = "@drawable/navi_icon_home"
+                android:background="@drawable/navi_button_background"
+                android:scaleType="fitCenter"
+                />
 
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:onClick="astroListener"
-                    android:text="2" />
+            <ImageButton
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="12dp"
+                android:padding="6dp"
+                android:onClick="astroListener"
+                android:src="@drawable/navi_icon_astro"
+                android:background="@drawable/navi_button_background"
+                android:scaleType="fitCenter"
+                />
 
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:onClick="communityListener"
-                    android:text="3" />
+            <ImageButton
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="12dp"
+                android:padding="6dp"
+                android:onClick="communityListener"
+                android:src="@drawable/navi_icon_commu"
+                android:background="@drawable/navi_button_background"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:text="3" />
 
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:onClick="compassListener"
-                    android:text="4" />
+            <ImageButton
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="12dp"
+                android:onClick="compassListener"
+                android:src="@drawable/navi_icon_compass"
+                android:background="@drawable/navi_button_background"
+                android:scaleType="fitCenter"
+                android:text="4" />
 
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:onClick="observeListener"
-                    android:text="5" />
+            <ImageButton
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="12dp"
+                android:padding="6dp"
+                android:onClick="observeListener"
+                android:src="@drawable/navi_icon_observatory"
+                android:background="@drawable/navi_button_background"
+                android:scaleType="fitCenter"
+                android:text="5" />
 
         </LinearLayout>
     </LinearLayout>

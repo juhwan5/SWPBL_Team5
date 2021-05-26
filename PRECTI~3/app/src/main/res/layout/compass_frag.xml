@@ -21,12 +21,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="방위각:"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20dp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="#BBBBBB"
+                android:layout_marginTop="5dp">
                 <ImageView
                     android:id="@+id/compass_arrow"
                     android:layout_width="400dp"
@@ -55,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:text= "선택 후 확인을 눌러주세요."
                 android:textSize="20dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_margin="10dp"
                 android:id="@+id/print_altaz"/>
 
@@ -68,7 +70,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/meteor"
-                android:prompt="@string/allprompt"/>
+                android:prompt="@string/allprompt"
+                android:padding="5dp"
+                android:background="@drawable/spinner_background"
+                />
 
 
             <Spinner
@@ -76,7 +81,10 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/city"
                 android:prompt="@string/allprompt"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:background="@drawable/spinner_background"
+                />
             </LinearLayout>
 
         <LinearLayout
@@ -88,7 +96,10 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/time"
                 android:prompt="@string/allprompt"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:background="@drawable/spinner_background"
+                />
 
             <Button
                 android:layout_height="wrap_content"
@@ -96,7 +107,10 @@
                 android:text="검색"
                 android:onClick="printAltAz"
                 android:id="@+id/print_altaz_btn"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         </LinearLayout>

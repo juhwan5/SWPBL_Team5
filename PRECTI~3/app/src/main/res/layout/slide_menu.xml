@@ -4,13 +4,14 @@
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:orientation="vertical"
-    android:background="#e49e9e">
+    android:background="@drawable/slidemenu_background"
+    >
 
     <!-- 윗부분 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="#72EF36">
+        >
 
         <TextView
             android:layout_width="match_parent"
@@ -19,8 +20,13 @@
             android:layout_margin="10dp"
             android:text="슬라이드 메뉴"
             android:textSize="20dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white"/>
 
     <!-- 아랫부분 -->
     <LinearLayout
@@ -28,20 +34,26 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <Button
-            android:layout_width="230dp"
+            android:layout_width="260dp"
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:onClick="logoutListener"
-            android:text="로그아웃" />
+            android:backgroundTint="@color/white"
+            android:text="로그아웃"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
 
         <Button
-            android:layout_width="230dp"
+            android:layout_width="260dp"
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:onClick="mytextualListener"
-            android:text="내 글 관리" />
+            android:text="내 글 관리"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

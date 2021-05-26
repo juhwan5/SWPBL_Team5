@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,7 +72,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
         TextView date;
         TextView textual;
         TextView comment;
-        Button update, delete;
+        ImageButton update, delete;
 
         public ViewHolder(View v){
             super(v);
