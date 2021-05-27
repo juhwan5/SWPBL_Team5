@@ -30,7 +30,7 @@ public class UploadedImageAdapter extends RecyclerView.Adapter<UploadedImageAdap
 
     public UploadedImageAdapter(List<ImageDTO> imageDTOList, Context context) {
         this.imageDTOList = imageDTOList;
-        this.storage = storage.getInstance("gs://community-test-21524.appspot.com");
+        this.storage = storage.getInstance("gs://pushtest-b28ba.appspot.com"); // 스토리지에 따라 고쳐줘야하는 코드
         this.context = context;
     }
 
