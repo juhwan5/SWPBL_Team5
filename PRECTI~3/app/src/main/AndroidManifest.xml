@@ -3,6 +3,8 @@
     package="com.example.precticeproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -11,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PrecticeProject"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true">
         <activity android:name=".TTTTTTTTTT"></activity>
         <activity android:name=".MyTextualActivity" />
         <activity android:name=".CommunityEditTextActivity" />
@@ -30,6 +33,7 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ObservatoryListActivity" />
+        <activity android:name=".UploadActivity"/>
     </application>
 
 </manifest>

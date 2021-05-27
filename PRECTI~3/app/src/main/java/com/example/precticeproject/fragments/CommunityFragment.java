@@ -6,70 +6,71 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.precticeproject.CommunityEditTextActivity;
-import com.example.precticeproject.LoginActivity;
-import com.example.precticeproject.MainActivity;
-import com.example.precticeproject.R;
-import com.example.precticeproject.functions.CommunityAdapter;
-import com.example.precticeproject.functions.CommunityItem;
-import com.example.precticeproject.functions.ProcessJSONData;
-import com.example.precticeproject.network.CommuLookupRequest;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
+import com.example.precticeproject.R;
+import com.example.precticeproject.UploadActivity;
+import com.example.precticeproject.functions.ImageDTO;
+import com.example.precticeproject.functions.UploadedImageAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class CommunityFragment extends Fragment {
     public CommunityFragment() {}
-    final String ASTERISK= "*";
-    CommunityAdapter adapter;
-    RecyclerView recyclerView;
-    String username;
+
+    private RecyclerView recyclerView;
+    private List<ImageDTO> imageDTOList = new ArrayList<>();
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ProgressBar mProgressCircle;
+    private DatabaseReference firebaseDatabase;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        adapter = new CommunityAdapter(getContext());
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.commu_frag,container,false);
 
-        username = getArguments().getString("username");
-        recyclerView = v.findViewById(R.id.community_recyclerview);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        firebaseDatabase = FirebaseDatabase.getInstance().getReference("uploads"); // 파이어베이스 데이터 베이스 연동 , DB테이블연결
+        recyclerView = v.findViewById(R.id.community_recyclerview); // 연결
+        recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
+        layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        adapter.setUsername(username);
+        mProgressCircle = v.findViewById(R.id.progress_circle);
 
-        Button writeText = v.findViewById(R.id.commu_write_textual);
-        writeText.setOnClickListener(new View.OnClickListener() {
+
+        // 게시물 작성 화면으로 넘어가는 버튼 코드
+        Button add_board = (Button) v.findViewById(R.id.commu_write_textual);
+        add_board.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CommunityEditTextActivity.class);
-                intent.putExtra("username",username);
-                intent.putExtra("textual","null");
+                Intent intent = new Intent(getContext(), UploadActivity.class);
                 startActivity(intent);
+
             }
         });
 
-        Button refresh = v.findViewById(R.id.commu_refresh);
-        refresh.setOnClickListener(new View.OnClickListener() {
+        Button refresh = (Button) v.findViewById(R.id.commu_refresh);
+        refresh.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 showRecyclerView();
@@ -86,31 +87,29 @@ public class CommunityFragment extends Fragment {
     }
 
     public void showRecyclerView(){
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
+        //옵저버 패턴 --> 변화가 있으면 클라이언트에 알려준다.
+        firebaseDatabase.child("profile").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonResponse = new JSONObject(response);
-                    boolean success = jsonResponse.getBoolean("success");
-                    if (success){
-                        adapter.clear();
-                        ArrayList<CommunityItem> itemArrayList = ProcessJSONData.processCommuLookupData(jsonResponse.getJSONArray("data"));
-                        for (int i = 0; i<itemArrayList.size(); i++){
-                            adapter.addItem(itemArrayList.get(i));
-                        }
-                        recyclerView.setAdapter(adapter);
-                    } else{
-                        Toast.makeText(getContext(),"실패", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    Toast.makeText(getContext(),"불능", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
+                //데이터가 쌓이기 때문에  clear()
+                imageDTOList.clear();
+                for(DataSnapshot ds : dataSnapshot.getChildren())           //여러 값을 불러와 하나씩 반복
+                {
+                    ImageDTO imageDTO = ds.getValue(ImageDTO.class);
+                    imageDTOList.add(imageDTO); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
                 }
-            }
-        };
 
-        CommuLookupRequest lookupRequest = new CommuLookupRequest(ASTERISK,responseListener);
-        RequestQueue queue = Volley.newRequestQueue(getContext());
-        queue.add(lookupRequest);
+                // ArrayAdapter<Object> uploadedImageAdapter;
+                mAdapter.notifyDataSetChanged(); // 리스트 저장 및 새로 고침
+                mProgressCircle.setVisibility(View.INVISIBLE);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // 디비를 가져오던 중 에러 발생시
+                Toast.makeText(getContext(), "저장 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+        mAdapter = new UploadedImageAdapter(imageDTOList, getContext());
+        recyclerView.setAdapter(mAdapter); // 리사이클러뷰에 어댑터 연결
     }
 }

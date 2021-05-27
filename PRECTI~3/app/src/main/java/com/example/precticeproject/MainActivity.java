@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.precticeproject.fragments.*;
 
@@ -55,9 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mytextualListener (View v){
-        Intent intent = new Intent(getApplicationContext(),MyTextualActivity.class);
-        intent.putExtra("username",name);
-        startActivity(intent);
+        Toast.makeText(getApplicationContext(), "미구현", Toast.LENGTH_SHORT).show();
     }
 
 

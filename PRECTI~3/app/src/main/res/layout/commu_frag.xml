@@ -9,6 +9,13 @@
         android:orientation="horizontal"
         android:gravity = "right">
 
+        <ProgressBar
+            android:id="@+id/progress_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,6 +30,8 @@
             android:id="@+id/commu_refresh"/>
 
     </LinearLayout>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
