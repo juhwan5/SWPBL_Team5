@@ -40,6 +40,7 @@ public class UploadActivity extends AppCompatActivity {
     private TextInputEditText etTitle, etDesc;
     private String imageUrl = "";
     private int GALLEY_CODE = 10;
+    private String username;
 
     private FirebaseAuth mAuth;
     private StorageReference storage;
@@ -51,6 +52,8 @@ public class UploadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
 
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
         mAuth = FirebaseAuth.getInstance();
         storage = FirebaseStorage.getInstance().getReference("uploads");
         database = FirebaseDatabase.getInstance().getReference("uploads");
@@ -132,6 +135,7 @@ public class UploadActivity extends AppCompatActivity {
                             // 파이어베이스에 데이터베이스 업로드
                             ImageDTO imageDTO = new ImageDTO();
                             imageDTO.setImageUrl(A3);
+                            imageDTO.setUsername(username);
                             imageDTO.setTitle(etTitle.getText().toString());
                             imageDTO.setDescription(etDesc.getText().toString());
                             database.child("profile").push().setValue(imageDTO);

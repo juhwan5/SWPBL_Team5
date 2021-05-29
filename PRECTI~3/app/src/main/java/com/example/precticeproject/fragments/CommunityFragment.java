@@ -17,8 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.precticeproject.R;
 import com.example.precticeproject.UploadActivity;
-import com.example.precticeproject.functions.ImageDTO;
-import com.example.precticeproject.functions.UploadedImageAdapter;
+import com.example.precticeproject.functions.*;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,12 +32,14 @@ import java.util.List;
 public class CommunityFragment extends Fragment {
     public CommunityFragment() {}
 
+    String username;
     private RecyclerView recyclerView;
     private List<ImageDTO> imageDTOList = new ArrayList<>();
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ProgressBar mProgressCircle;
     private DatabaseReference firebaseDatabase;
+    private RecyclerDecoration recyclerDecoration;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -49,14 +50,18 @@ public class CommunityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.commu_frag,container,false);
+        Bundle bundle = getArguments();
 
+        username = bundle.getString("username");
         firebaseDatabase = FirebaseDatabase.getInstance().getReference("uploads"); // 파이어베이스 데이터 베이스 연동 , DB테이블연결
         recyclerView = v.findViewById(R.id.community_recyclerview); // 연결
         recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         mProgressCircle = v.findViewById(R.id.progress_circle);
+        recyclerDecoration = new RecyclerDecoration(5);
 
+        recyclerView.addItemDecoration(recyclerDecoration);
 
         // 게시물 작성 화면으로 넘어가는 버튼 코드
         Button add_board = (Button) v.findViewById(R.id.commu_write_textual);
@@ -64,8 +69,8 @@ public class CommunityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), UploadActivity.class);
+                intent.putExtra("username",username);
                 startActivity(intent);
-
             }
         });
 

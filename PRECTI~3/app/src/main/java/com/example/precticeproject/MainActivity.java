@@ -56,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mytextualListener (View v){
-        Toast.makeText(getApplicationContext(), "미구현", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "미구현", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getApplicationContext(),MyTextualActivity.class);
+        intent.putExtra("username",name);
+        startActivity(intent);
     }
 
 

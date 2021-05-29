@@ -39,8 +39,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:onClick="logoutListener"
-            android:backgroundTint="@color/white"
             android:text="로그아웃"
+            android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:textStyle="bold"/>
 
