@@ -62,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void extraListener (View v){
+        Intent intent = new Intent(getApplicationContext(),TTTTTTTTTT.class);
+        startActivity(intent);
+    }
+
 
     public void listenCall(int i){
         // 버튼이 눌렸을 때 동작들을 묶었습니다.

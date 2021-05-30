@@ -13,10 +13,6 @@ public class TTTTTTTTTT extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_t_t_t_t_t_t_t_t_t_t);
 
-        Intent intent = getIntent();
-        String number = intent.getStringExtra("textnumber");
 
-        TextView t1 = (TextView) findViewById(R.id.testttt);
-        t1.setText(number);
     }
 }

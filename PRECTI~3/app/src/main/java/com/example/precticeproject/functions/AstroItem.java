@@ -1,9 +1,11 @@
 package com.example.precticeproject.functions;
 
+import android.text.TextUtils;
+
 public class AstroItem {
     private String profile;
     private String id;
-    private int pw;
+    private String pw;
     private String userName;
 
     public AstroItem(){}
@@ -24,12 +26,16 @@ public class AstroItem {
         this.id = id;
     }
 
-    public int getPw() {
+    public String getPw() {
         return pw;
     }
 
-    public void setPw(int pw) {
-        this.pw = pw;
+    public void setPw(String pw) {
+        if(TextUtils.isEmpty(pw)){
+            this.pw = "nope";
+        }else {
+            this.pw = pw;
+        }
     }
 
     public String getUserName() {

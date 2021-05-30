@@ -1,7 +1,16 @@
 <resources>
 
-    <string name="app_name">5.29.3</string>
+    <string name="app_name">5.30.2</string>
 
+    <string name="extra">
+        소프트웨어설계PBL 5조\n
+        별볼일 없는날\n\n
+
+        팀장 신주환\n
+        팀원 김성수\n
+        팀원 한성현
+
+    </string>
 
     <string-array name="meteorshower">
         <item>사분의자리 유성우</item>
