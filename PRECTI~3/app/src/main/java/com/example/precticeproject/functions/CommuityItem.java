@@ -1,13 +1,13 @@
 package com.example.precticeproject.functions;
 
-public class ImageDTO {
+public class CommuityItem {
     private String imageUrl;
     private String title;
     private String description;
     private String username;
 
 
-    public ImageDTO() {
+    public CommuityItem() {
     }
 
     public String getImageUrl() {

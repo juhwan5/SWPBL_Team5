@@ -1,6 +1,7 @@
 <resources>
 
-    <string name="app_name">5.30.2</string>
+    <string name="version">5.30.2</string>
+    <string name="app_name">별볼일있는날</string>
 
     <string name="extra">
         소프트웨어설계PBL 5조\n

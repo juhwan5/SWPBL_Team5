@@ -18,17 +18,4 @@ public class ProcessJSONData {
         return re;
     }
 
-    public static ArrayList<CommunityItem> processCommuLookupData(JSONArray jsonArray) throws JSONException{
-        ArrayList<CommunityItem> itemlist = new ArrayList<>();
-
-        for(int i=0; i< jsonArray.length(); i++){
-            JSONObject jsonObject = jsonArray.getJSONObject(i);
-            CommunityItem item = new CommunityItem(jsonObject.getInt("textnumber"),
-                    jsonObject.getString("profilename"),jsonObject.getString("profiledate"),
-                    jsonObject.getString("textual"),i+"");
-            itemlist.add(item);
-        }
-
-        return itemlist;
-    }
 }

@@ -13,24 +13,14 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
-import com.example.precticeproject.functions.CommunityAdapter;
-import com.example.precticeproject.functions.CommunityItem;
-import com.example.precticeproject.functions.ImageDTO;
-import com.example.precticeproject.functions.ProcessJSONData;
+import com.example.precticeproject.functions.CommuityItem;
 import com.example.precticeproject.functions.RecyclerDecoration;
-import com.example.precticeproject.functions.UploadedImageAdapter;
-import com.example.precticeproject.network.CommuLookupRequest;
+import com.example.precticeproject.functions.CommunityAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +28,7 @@ import java.util.List;
 public class MyTextualActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private List<ImageDTO> imageDTOList = new ArrayList<>();
+    private List<CommuityItem> commuityItemList = new ArrayList<>();
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ProgressBar mProgressCircle;
@@ -92,14 +82,14 @@ public class MyTextualActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
                 //데이터가 쌓이기 때문에  clear()
-                imageDTOList.clear();
+                commuityItemList.clear();
                 for(DataSnapshot ds : dataSnapshot.getChildren())           //여러 값을 불러와 하나씩 반복
                 {
-                    ImageDTO imageDTO = ds.getValue(ImageDTO.class);
-                    String writer = imageDTO.getUsername();
+                    CommuityItem commuityItem = ds.getValue(CommuityItem.class);
+                    String writer = commuityItem.getUsername();
                     if(!(TextUtils.isEmpty(writer))) {
                         if(writer.equals(username)) {
-                            imageDTOList.add(imageDTO); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+                            commuityItemList.add(commuityItem); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
                         }
                     }
                 }
@@ -114,7 +104,7 @@ public class MyTextualActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "저장 실패", Toast.LENGTH_SHORT).show();
             }
         });
-        mAdapter = new UploadedImageAdapter(imageDTOList, getApplicationContext());
+        mAdapter = new CommunityAdapter(commuityItemList, getApplicationContext());
         recyclerView.setAdapter(mAdapter); // 리사이클러뷰에 어댑터 연결
     }
 }

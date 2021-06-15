@@ -34,7 +34,7 @@ public class CommunityFragment extends Fragment {
 
     String username;
     private RecyclerView recyclerView;
-    private List<ImageDTO> imageDTOList = new ArrayList<>();
+    private List<CommuityItem> commuityItemList = new ArrayList<>();
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ProgressBar mProgressCircle;
@@ -97,11 +97,11 @@ public class CommunityFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
                 //데이터가 쌓이기 때문에  clear()
-                imageDTOList.clear();
+                commuityItemList.clear();
                 for(DataSnapshot ds : dataSnapshot.getChildren())           //여러 값을 불러와 하나씩 반복
                 {
-                    ImageDTO imageDTO = ds.getValue(ImageDTO.class);
-                    imageDTOList.add(imageDTO); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+                    CommuityItem commuityItem = ds.getValue(CommuityItem.class);
+                    commuityItemList.add(commuityItem); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
                 }
 
                 // ArrayAdapter<Object> uploadedImageAdapter;
@@ -114,7 +114,7 @@ public class CommunityFragment extends Fragment {
                 Toast.makeText(getContext(), "저장 실패", Toast.LENGTH_SHORT).show();
             }
         });
-        mAdapter = new UploadedImageAdapter(imageDTOList, getContext());
+        mAdapter = new CommunityAdapter(commuityItemList, getContext());
         recyclerView.setAdapter(mAdapter); // 리사이클러뷰에 어댑터 연결
     }
 }

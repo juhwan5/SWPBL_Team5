@@ -1,4 +1,4 @@
-package com.example.precticeproject;
+package com.example.precticeproject.network;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;

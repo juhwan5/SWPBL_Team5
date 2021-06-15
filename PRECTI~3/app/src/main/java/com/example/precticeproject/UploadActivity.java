@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.precticeproject.functions.ImageDTO;
+import com.example.precticeproject.functions.CommuityItem;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -133,12 +133,12 @@ public class UploadActivity extends AppCompatActivity {
                             String A3 = fileReference.getPath();
                             Log.d("A3", A3);
                             // 파이어베이스에 데이터베이스 업로드
-                            ImageDTO imageDTO = new ImageDTO();
-                            imageDTO.setImageUrl(A3);
-                            imageDTO.setUsername(username);
-                            imageDTO.setTitle(etTitle.getText().toString());
-                            imageDTO.setDescription(etDesc.getText().toString());
-                            database.child("profile").push().setValue(imageDTO);
+                            CommuityItem commuityItem = new CommuityItem();
+                            commuityItem.setImageUrl(A3);
+                            commuityItem.setUsername(username);
+                            commuityItem.setTitle(etTitle.getText().toString());
+                            commuityItem.setDescription(etDesc.getText().toString());
+                            database.child("profile").push().setValue(commuityItem);
                             finish();
                         }
                     })

@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.precticeproject.fragments.*;
 
@@ -56,21 +55,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mytextualListener (View v){
-        //Toast.makeText(getApplicationContext(), "미구현", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getApplicationContext(),MyTextualActivity.class);
         intent.putExtra("username",name);
         startActivity(intent);
     }
 
     public void extraListener (View v){
-        Intent intent = new Intent(getApplicationContext(),TTTTTTTTTT.class);
+        Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
         startActivity(intent);
     }
 
 
     public void listenCall(int i){
         // 버튼이 눌렸을 때 동작들을 묶었습니다.
-        String[] tag = {"홈","천문현상","커뮤니티",
+        String[] tag = {"홈","유성우","커뮤니티",
                 "나침반","천문대","메뉴1"};
         Fragment frag = findFragment(i);
 
